@@ -252,7 +252,7 @@ class HomeScreen extends StatelessWidget {
         width: 120,
         child: FloatingActionButton.extended(
           onPressed: () {},
-          backgroundColor: Colors.red.shade400,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           label: const Text(
