@@ -10,6 +10,9 @@ class HomeScreen extends StatelessWidget {
     final pageController = PageController(
       viewportFraction: 0.8,
     );
+    final exclusivePageController = PageController(
+      viewportFraction: 0.8,
+    );
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -52,12 +55,12 @@ class HomeScreen extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'KYC Pending',
                     style: TextStyle(
                       fontSize: 25,
@@ -65,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  Text(
+                  const Text(
                     'You need to provide the required\ndocuments for your account activation',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -74,14 +77,17 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  Text(
-                    'click here',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      'click here',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.white,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -89,7 +95,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Container(
               height: 120,
-              margin: const EdgeInsets.all(50).copyWith(top: 0),
+              margin: const EdgeInsets.all(50).copyWith(top: 0, bottom: 0),
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -148,8 +154,95 @@ class HomeScreen extends StatelessWidget {
             Container(
               height: 600,
               width: double.infinity,
-              decoration: const BoxDecoration(
-                color: Color.fromRGBO(83, 173, 196, 1),
+              color: const Color.fromRGBO(83, 173, 196, 1),
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        const Text(
+                          'Exclusive for you',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 27,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.arrow_right_alt_outlined,
+                            color: Colors.white,
+                            size: 50,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 500,
+                    child: PageView.builder(
+                        controller: exclusivePageController,
+                        itemCount: 5,
+                        itemBuilder: (BuildContext ctx, int index) {
+                          return Stack(
+                            children: [
+                              Container(
+                                width: 400,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8.0),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/images/phone.jpg',
+                                        height: 350,
+                                      ),
+                                      const SizedBox(height: 10),
+                                      const Text(
+                                        'Nokia 8.1 (Iron, 64 GB)',
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                top: 5,
+                                right: 5,
+                                child: Container(
+                                  padding: const EdgeInsets.all(5),
+                                  // color: Colors.green,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(20)),
+                                  ),
+                                  child: const Text(
+                                    '32% off',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        }),
+                  ),
+                ],
               ),
             ),
           ],

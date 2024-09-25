@@ -53,12 +53,15 @@ class _BottomNavigatorState extends State<BottomNavigator> {
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
               ),
-              child: Text(
-                'DealsDray',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Text(
+                  'DealsDray',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 50,
+                  ),
                 ),
               ),
             ),
@@ -100,6 +103,10 @@ class _BottomNavigatorState extends State<BottomNavigator> {
         onTap: _onItemTapped,
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.grey,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        iconSize: 30,
+
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
